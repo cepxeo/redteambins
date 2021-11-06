@@ -10,9 +10,7 @@ Compiled binaries and ready to use code for red teaming.
 - https://github.com/RhinoSecurityLabs/Aggressor-Scripts
 - https://pentestmag.com/simpleshellcodeinjector-ssi/
 
-## Exploits
-
-https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/
+## Exploits (just links, no binaries here)
 
 https://github.com/maxpl0it/CVE-2020-0674-Exploit
 
@@ -29,6 +27,8 @@ https://srcincite.io/pocs/cve-2020-16875.py.txt
 https://srcincite.io/pocs/cve-2020-16875.ps1.txt
 
 https://github.com/ionescu007/PrintDemon
+
+https://github.com/ly4k/SMBGhost
 
 https://github.com/apt69/COMahawk
 
